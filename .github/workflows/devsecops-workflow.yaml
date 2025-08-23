@@ -44,7 +44,16 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           command: test    # command used for SCA
-          args: --sarif-file-output=snyk-sca-report.sarif         
+          args: --sarif-file-output=snyk-sca-report.sarif
+          
+      - name: Upload Snyk SCA scan Sarif report
+        uses: actions/upload-artifact@v4
+        with:
+          name: snyk-sca-sarif-results
+          path: snyk-sca-report.sarif
+          
+      - name: Wait for SCA scan/report to complete
+        run: sleep 10     # Adjust as needed
 
      # SAST (Static Application Security Testing)      
       - name: Run SNYK SAST scan
@@ -54,7 +63,13 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           command: code test    # command used for SAST
-          args: --sarif-file-output=snyk-sast-report.sarif          
+          args: --sarif-file-output=snyk-sast-report.sarif
+
+      - name: Upload Snyk SAST scan Sarif report
+        uses: actions/upload-artifact@v4
+        with:
+          name: snyk-sast-sarif-results
+          path: snyk-sast-report.sarif
 
   # Penetration Testing (DAST- Dynamic Application Security Testing)
   zap_scan:
@@ -69,14 +84,11 @@ jobs:
         with:
           target: 'https://www.medium.com/'
           artifact_name: zap_scan_report
-          rules_file_name: '.zap/rules.tsv'
-          cmd_options: '-a'
-
+          
       - name: ZAP Scan Pen Test
         uses: zaproxy/action-api-scan@v0.9.0
         continue-on-error: true
         with:
           target: 'https://www.medium.com/'   
           artifact_name: zap_pentest_report
-          rules_file_name: '.zap/rules.tsv'
-          cmd_options: '-a'
+          
