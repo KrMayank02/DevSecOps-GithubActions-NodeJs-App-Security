@@ -74,7 +74,7 @@ jobs:
         uses: zaproxy/action-baseline@v0.14.0
         continue-on-error: true
         with:
-          target: 'http://testphp.vulnweb.com/'
+          target: 'https://www.medium.com/'
           artifact_name: zap_scan_report
           rules_file_name: '.zap/rules.tsv'
           cmd_options: '-a'
@@ -83,7 +83,7 @@ jobs:
         uses: zaproxy/action-api-scan@v0.9.0
         continue-on-error: true
         with:
-          target: 'http://testphp.vulnweb.com/'   
+          target: 'https://www.medium.com/'   
           artifact_name: zap_pentest_report
           rules_file_name: '.zap/rules.tsv'
           cmd_options: '-a'
