@@ -63,11 +63,6 @@ jobs:
     permissions: write-all
     name: Run DAST scan using OWASP ZAP on the web application
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          ref: master
-          
       - name: ZAP Scan
         uses: zaproxy/action-baseline@v0.14.0
         continue-on-error: true
