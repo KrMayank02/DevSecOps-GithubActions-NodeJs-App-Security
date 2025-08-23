@@ -1,49 +1,89 @@
-name: Build code, run SAST, SCA, DAST security scans for NodeJs App
-on: push
+name: Build source code, run Security Scans- SAST, SCA and DAST for NodeJs App
 
+# Control when the workflow will run,
+# Triggers the workflow on push or pull request events but only for the "main" branch
+on:  
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+# Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Grant "write" permissions for "issues", ensuring the workflow can create, modify, or close issues
+permissions:
+  issues: write
+  
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build:
+
+  snyk_scan:
     runs-on: ubuntu-latest
-    name: Run unit tests and SAST scan on the source code 
+    name: Run SCA, SAST scan on Code
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: 21
-        cache: npm
-    - run: npm install
-    - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      with:
-        args: >
-          -Dsonar.organization=dotnetgithubactionsorg
-          -Dsonar.projectKey=dotnetgithubactionsproject
-  security:
-    runs-on: ubuntu-latest
-    needs: build
-    name: Run the SCA scan on the source code
-    steps:
-      - uses: actions/checkout@master
-      - name: RunSnyk to check for vulnerabilities
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node js  
+        uses: actions/setup-node@v4
+        with:
+          node-version: 21
+          cache: npm
+        
+      - name: Install npm dependencies
+        run: npm install
+      - name: Wait for application to get installed
+        run: sleep 15     # Adjust as needed
+        
+     # SCA (Software Composition Analysis)
+      - name: Run SNYK SCA scan
         uses: snyk/actions/node@master
         continue-on-error: true
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          command: test    # command used for SCA
+          args: --sarif-file-output=snyk-sca-report.sarif
+          artifact_name: snyk-sca-report.sarif
+
+     # SAST (Static Application Security Testing)      
+      - name: Run SNYK SAST scan
+        uses: snyk/actions/node@master
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          command: code test    # command used for SAST
+          args: --sarif-file-output=snyk-sast-report.sarif
+          artifact_name: snyk-sast-report.sarif
+
+  # Penetration Testing (DAST- Dynamic Application Security Testing)
   zap_scan:
     runs-on: ubuntu-latest
-    needs: security
-    name: Run DAST scan on the web application
+    needs: snyk_scan
+    permissions: write-all
+    name: Run DAST scan using OWASP ZAP on the web application
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
         with:
           ref: master
+          
       - name: ZAP Scan
         uses: zaproxy/action-baseline@v0.14.0
+        continue-on-error: true
         with:
-          target: 'http://example.com/'
+          target: 'http://testphp.vulnweb.com/'
+          artifact_name: zap_scan_report
+          rules_file_name: '.zap/rules.tsv'
+          cmd_options: '-a'
+
+      - name: ZAP Scan Pen Test
+        uses: zaproxy/action-api-scan@v0.9.0
+        continue-on-error: true
+        with:
+          target: 'http://testphp.vulnweb.com/'   
+          artifact_name: zap_pentest_report
           rules_file_name: '.zap/rules.tsv'
           cmd_options: '-a'
