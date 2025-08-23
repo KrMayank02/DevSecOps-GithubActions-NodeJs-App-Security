@@ -44,8 +44,7 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           command: test    # command used for SCA
-          args: --sarif-file-output=snyk-sca-report.sarif
-          artifact_name: snyk-sca-report.sarif
+          args: --sarif-file-output=snyk-sca-report.sarif         
 
      # SAST (Static Application Security Testing)      
       - name: Run SNYK SAST scan
@@ -55,8 +54,7 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           command: code test    # command used for SAST
-          args: --sarif-file-output=snyk-sast-report.sarif
-          artifact_name: snyk-sast-report.sarif
+          args: --sarif-file-output=snyk-sast-report.sarif          
 
   # Penetration Testing (DAST- Dynamic Application Security Testing)
   zap_scan:
