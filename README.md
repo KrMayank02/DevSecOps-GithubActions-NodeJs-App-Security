@@ -22,3 +22,25 @@ They employ Snyk for Static Application Security Testing (SAST) and Software Com
 -	Run Workflow to perform Security Scans- SAST, SCA and DAST and generate Artifacts (Scan reports).
 -	Observe the Workflow Run Status and analyze the Scan reports (Artifacts).
 
+### Output Results Screenshots:
+
+<img width="751" height="498" alt="image" src="https://github.com/user-attachments/assets/63a523ee-3286-4283-ad8c-a8d0a8d216cf" />
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+<img width="752" height="553" alt="image" src="https://github.com/user-attachments/assets/b240dc62-cf34-4080-8ff4-1eb18a5c4f70" />
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+<img width="731" height="662" alt="image" src="https://github.com/user-attachments/assets/3f6f26c2-d0b9-4dab-aa22-37c130a3ece2" />
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+<img width="927" height="408" alt="image" src="https://github.com/user-attachments/assets/0373260a-fbae-421e-ad5e-da051c6be63c" />
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
