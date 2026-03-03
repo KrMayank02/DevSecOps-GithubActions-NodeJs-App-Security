@@ -22,7 +22,7 @@ They employ Snyk for Static Application Security Testing (SAST) and Software Com
 -	Run Workflow to perform Security Scans- SAST, SCA and DAST and generate Artifacts (Scan reports).
 -	Observe the Workflow Run Status and analyze the Scan reports (Artifacts).
 
-### Output Results Screenshots:
+## Output Results Screenshots:
 
 <img width="751" height="498" alt="image" src="https://github.com/user-attachments/assets/63a523ee-3286-4283-ad8c-a8d0a8d216cf" />
 
@@ -39,6 +39,40 @@ They employ Snyk for Static Application Security Testing (SAST) and Software Com
 <img width="927" height="408" alt="image" src="https://github.com/user-attachments/assets/0373260a-fbae-421e-ad5e-da051c6be63c" />
 
 --------------------------------------------------------------------------------------------------------------------------------------
+
+Paste the Secret as copied from Snyk Auth Token under github repo:
+
+<img width="870" height="553" alt="image" src="https://github.com/user-attachments/assets/25132022-08c2-4ec7-8981-9a3d2c177676" />
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+Create Github Actions workflow definition file:
+
+<img width="956" height="443" alt="image" src="https://github.com/user-attachments/assets/ce2e9d4b-f49f-4ea8-a826-f8926ec19777" />
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+perform Security Scans- SAST, SCA and DAST and generate Artifacts (Scan reports):
+
+<img width="957" height="396" alt="image" src="https://github.com/user-attachments/assets/7c9f543f-32e8-423b-9812-1a53947e1319" />
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+Observe the Workflow Run Status and analyze the Scan reports (Artifacts):
+
+<img width="930" height="450" alt="image" src="https://github.com/user-attachments/assets/581ca1be-379b-4690-a9e4-0f2c0ae6b9cb" />
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+<img width="965" height="457" alt="image" src="https://github.com/user-attachments/assets/be69be42-b8e9-4091-946b-12343d851c55" />
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
 
 
 
