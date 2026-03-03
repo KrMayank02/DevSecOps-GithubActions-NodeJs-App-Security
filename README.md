@@ -68,13 +68,40 @@ Observe the Workflow Run Status and analyze the Scan reports (Artifacts):
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
+<img width="932" height="454" alt="image" src="https://github.com/user-attachments/assets/37436841-f291-48b3-9e5e-ddce96879470" />
 
+--------------------------------------------------------------------------------------------------------------------------------------
 
+<img width="897" height="613" alt="image" src="https://github.com/user-attachments/assets/34c6c4a9-64e0-4466-8554-0ea40b3fe58b" />
 
+-------------------------------------------------------------------------------------------------------------------------------------
 
+<img width="967" height="515" alt="image" src="https://github.com/user-attachments/assets/241653bb-4908-4d21-a14f-37d83c83a092" />
 
+-------------------------------------------------------------------------------------------------------------------------------------
 
+<img width="965" height="512" alt="image" src="https://github.com/user-attachments/assets/7734e0e2-658f-47cc-8fad-c48c5c458381" />
 
+-------------------------------------------------------------------------------------------------------------------------------------
 
+<img width="884" height="404" alt="image" src="https://github.com/user-attachments/assets/73a45a43-58c1-4bf4-a08c-b465514f9655" />
 
+-------------------------------------------------------------------------------------------------------------------------------------
+
+<img width="965" height="373" alt="image" src="https://github.com/user-attachments/assets/0e688d10-0520-469d-ac24-371d62d93dde" />
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+Artifacts (Reports) uploaded under github repo:
+
+<img width="796" height="584" alt="image" src="https://github.com/user-attachments/assets/2af3ed3a-ef55-43e8-a320-326e8f52332f" />
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+<img width="898" height="590" alt="image" src="https://github.com/user-attachments/assets/3f912944-82e8-42a0-adaf-d59d327a7964" />
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+**The Jobs and steps defined under workflow were able to run the Security Scans: SCA, SAST using SNYK tool and perform DAST Scan, Penetration security testing using OWASP ZAP successfully on NodeJS source code.**
+**The Artifacts (Scan Reports) were uploaded successfully and displayed vital insights about vulnerabilities/issues in the Node js code/app.**
 
