@@ -2,7 +2,7 @@
 
 **Objective:** To create a GitHub action workflow that will scan and perform SCA, SAST, and penetration security testing on a NodeJS source code.
 
-**Real-time scenario:** CloudInnovate, a startup focused on developing cloud applications for small business customer data management, uses GitHub for version control and prioritizes high security due to the sensitive data involved.
+**Real-time Scenario:** CloudInnovate, a startup focused on developing cloud applications for small business customer data management, uses GitHub for version control and prioritizes high security due to the sensitive data involved.
 To bolster security, CloudInnovate automates checks via GitHub Actions, including cloning their NodeJS app, confirming build integrity, and performing security scans.
 They employ Snyk for Static Application Security Testing (SAST) and Software Composition Analysis (SCA) to find vulnerabilities, and OWASP ZAP for penetration tests. Results are directly logged in GitHub, ensuring swift issue resolution. This strategy not only secures their software but also boosts their reputation, making them more attractive to investors.
 
