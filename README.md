@@ -42,7 +42,7 @@ They employ Snyk for Static Application Security Testing (SAST) and Software Com
 
 Paste the Secret as copied from Snyk Auth Token under github repo:
 
-<img width="870" height="553" alt="image" src="https://github.com/user-attachments/assets/25132022-08c2-4ec7-8981-9a3d2c177676" />
+<img width="1094" height="688" alt="image" src="https://github.com/user-attachments/assets/0ed69aca-a431-4ef4-b1b8-e58e5e5aa2f1" />
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
